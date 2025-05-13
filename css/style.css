@@ -1,0 +1,110 @@
+/* estilos.css */
+
+/* Estilos generales para el body - Fondo oscuro y texto general gris claro */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #000000; /* Nuevo color de fondo */
+    color: #d4d4d4;
+}
+
+/* Estilos para el título - Letras en dorado */
+h1 {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2.8em;
+    color: #FFD700; /* Color oro */
+    margin: 30px 0;
+    letter-spacing: 0.03em;
+    font-weight: 300;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombreado para que resalte el oro */
+    transition: font-size 0.3s ease, text-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+h1:hover {
+    font-size: 3.0em; /* Ligeramente más grande al pasar el ratón */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Sombra más pronunciada */
+}
+
+/* Estilos para la fila que contiene las columnas */
+.row {
+    display: flex;
+    margin: 0 -5px;
+}
+
+/* Estilos para cada columna - Fondo gris oscuro, texto gris claro/dorado */
+.col {
+    flex: 1;
+    padding: 15px 10px;
+    text-align: center;
+    font-weight: 500;
+    background-color: #333; /* Gris oscuro inicial */
+    border: 1px solid #555;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, color 0.3s ease, font-size 0.3s ease; /* Añadimos transición para font-size */
+    color: #d4d4d4;
+    position: relative; /* Para posicionar el pseudo-elemento de la línea */
+    overflow: hidden; /* Para que la línea no se vea fuera del borde inicialmente */
+    font-size: 1em; /* Tamaño de fuente inicial */
+}
+
+.col::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #FFD700;
+    transform: translateY(100%); /* Inicialmente fuera de la vista */
+    transition: transform 0.3s ease-in-out;
+}
+
+.col:hover {
+    background-color: #444; /* Gris ligeramente más claro al pasar el ratón */
+    color: #FFD700;
+    font-size: 1.1em; /* Ligeramente más grande al pasar el ratón */
+}
+
+.col:hover::after {
+    transform: translateY(0); /* Se desliza hacia arriba al hacer hover */
+}
+
+.col a {
+    display: block;       /* Hace que el enlace ocupe todo el espacio de la columna */
+    text-decoration: none; /* Elimina el subrayado predeterminado de los enlaces */
+    color: inherit;      /* Asegura que el color del texto del enlace herede del color de la columna */
+    height: 100%;         /* Hace que el enlace ocupe toda la altura de la columna */
+    width: 100%;          /* Hace que el enlace ocupe todo el ancho de la columna */
+}
+
+/* Asegurarse de que las columnas ocupen el ancho completo en pantallas pequeñas */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+    .col {
+        margin-bottom: 10px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+/* --- CÓDIGO AÑADIDO PARA EL EFECTO HOVER EN LOS TÍTULOS DE PÁGINA --- */
+
+/* Efecto hover para los títulos principales de las páginas de contenido */
+.main-page-h2 {
+    /* Asegura que la transformación se aplique suavemente */
+    transition: transform 0.3s ease-in-out; 
+    /* La línea 'display: inline-block;' ha sido eliminada de aquí. */
+}
+
+.main-page-h2:hover {
+    /* Levanta el texto ligeramente hacia arriba */
+    transform: translateY(-5px); 
+    /* Si prefieres que se haga más grande en lugar de levantarse, descomenta la siguiente línea y comenta la anterior: */
+    /* transform: scale(1.02); */
+}
